@@ -10,8 +10,8 @@
   });
 </script>
 
-<ul class="flex flex-row my-4">
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]} class="mr-8 w-[390px] h-[220px]">
+<ul class="flex flex-col xl:flex-row my-4">
+  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
     <img
       class="mx-2"
       height="220"
@@ -20,11 +20,11 @@
         items[$indexes[0]].value.thumbnail.url}
       alt=""
     />
-    <p class="text-xl">
+    <p class="text-xl w-[390px] mb-2">
       {items[$indexes[0]].value.title}
     </p>
   </a>
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]} class="w-[390px] h-[220px]">
+  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
     <img
       class="mx-2"
       height="220"
@@ -33,11 +33,11 @@
         items[$indexes[1]].value.thumbnail.url}
       alt=""
     />
-    <p class="text-xl">
+    <p class="text-xl w-[390px] mb-2">
       {items[$indexes[1]].value.title}
     </p>
   </a>
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]} class="ml-8 w-[390px] h-[220px]">
+  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
     <img
       class="mx-2"
       height="220"
@@ -46,12 +46,12 @@
         items[$indexes[2]].value.thumbnail.url}
       alt=""
     />
-    <p class="text-xl">
+    <p class="text-xl w-[390px] mb-2">
       {items[$indexes[2]].value.title}
     </p>
   </a>
 </ul>
-<div class="text-white text-lg mt-16">
+<div class="text-white text-lg mt-12">
   <button
     class="p-2 bg-primary hover:bg-accent"
     on:click={() => {

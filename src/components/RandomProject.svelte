@@ -15,19 +15,20 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
   const project = writable(0);
 </script>
 
-<div class="mx-auto max-w-4xl py-12">
-  <p>Text {$project + 1}/{projects.length}</p>
-  <h2 class="font-bold text-4xl">{projects[$project].name}</h2>
-  <p class="text-xl mb-4 whitespace-pre-wrap">
-    {projects[$project].description}
-  </p>
-  <button
-    class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
-    on:click={() => {
-      window.location.href = projects[$project].url;
-    }}>Läs</button
-  >
-  <!-- <button
+<div class="mx-auto max-w-7xl py-12">
+  <div class="mx-8 print:mx-auto">
+    <p>Text {$project + 1}/{projects.length}</p>
+    <h2 class="font-bold text-4xl">{projects[$project].name}</h2>
+    <p class="text-xl mb-4 whitespace-pre-wrap">
+      {projects[$project].description}
+    </p>
+    <button
+      class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
+      on:click={() => {
+        window.location.href = projects[$project].url;
+      }}>Läs</button
+    >
+    <!-- <button
     class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
     on:click={() => {
       if ($project === projects.length - 1) {
@@ -37,4 +38,5 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
       }
     }}>Visa en till text</button
   > -->
+  </div>
 </div>

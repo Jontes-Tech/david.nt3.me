@@ -12,6 +12,9 @@ module.exports = {
 				'secondary': '#e6d8b2',
 				'accent': '#324e9a',
 			},
+			screens: {
+				'print': { 'raw': 'print' },
+			}
 		},
 	},
 	plugins: [],

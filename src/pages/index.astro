@@ -19,13 +19,26 @@ if (!res.ok) {
 const { result } = (await res.json()) as OdyseeResponse;
 
 const { items } = result;
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "David Holmgren",
+  url: "https://david.nt3.me",
+  image: "https://david.nt3.me/david.webp",
+  sameAs: [
+    "https://www.odysee.com/@davidsbok",
+    "https://open.spotify.com/show/0wARi39vAudMReD87AcWrq",
+    "https://www.youtube.com/@davidholmgren8156",
+  ],
+});
 ---
 
 <Layout title="David Holmgren">
   <main>
     <section>
       <div
-        class="h-[60vh] grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
+        class="h-[60vh] print:h-auto grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
       >
         <div class="mr-auto place-self-center lg:col-span-7 py-4">
           <h1
@@ -124,4 +137,5 @@ const { items } = result;
       </div>
     </section>
   </main>
+  <script type="application/ld+json" set:html={schema}/>
 </Layout>
