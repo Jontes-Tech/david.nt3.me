@@ -1,0 +1,127 @@
+---
+import RandomProject from "../components/RandomProject.svelte";
+import Videos from "../components/Videos.svelte";
+import Layout from "../layouts/Layout.astro";
+import type { OdyseeResponse, ItemsEntity } from "../types";
+
+const res = await fetch(
+  "https://api.na-backend.odysee.com/api/v1/proxy?m=claim_search",
+  {
+    method: "POST",
+    body: '{"jsonrpc":"2.0","method":"claim_search","params":{"page_size":11,"page":1,"channel_ids":["d93af1745fb1f98a2dc6543b6ab703c3c1d70d05"],"stream_types":["video","audio","document","image","model","binary"],"claim_type":"stream","order_by":["release_time"],"no_totals":true,"index":1,"has_source":true},"id":1695826757312}',
+  }
+);
+
+if (!res.ok) {
+  throw new Error(`unexpected response ${res.statusText}`);
+}
+
+const { result } = (await res.json()) as OdyseeResponse;
+
+const { items } = result;
+---
+
+<Layout title="David Holmgren">
+  <main>
+    <section>
+      <div
+        class="h-[60vh] grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12"
+      >
+        <div class="mr-auto place-self-center lg:col-span-7 py-4">
+          <h1
+            class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-warmer-text"
+          >
+            David Holmgren
+          </h1>
+          <p class="mb-6 text-gray-800 lg:mb-8 md:text-lg lg:text-xl">
+            Följ med mig på en resa i literaturens värld!
+          </p>
+        </div>
+        <div class="hidden lg:mt-0 lg:col-span-5 lg:flex h-[60vh]">
+          <img src="/david.webp" class="object-scale-down" />
+        </div>
+      </div>
+    </section>
+    <section class="bg-more-background w-screen">
+      <RandomProject client:load />
+    </section>
+    <section>
+      <div class="flex justify-center my-4 font-bold text-4xl">
+        <div>
+          <h2>Bokhörnan där poddar finns</h2>
+          <ul class="mt-4 flex flex-row">
+            <li class="mx-2">
+              <a href="https://www.odysee.com/@davidsbok">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  version="1.1"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 168 168"
+                >
+                  <path
+                    fill="#3a2a27"
+                    d="m83.996 0.277c-46.249 0-83.743 37.493-83.743 83.742 0 46.251 37.494 83.741 83.743 83.741 46.254 0 83.744-37.49 83.744-83.741 0-46.246-37.49-83.738-83.745-83.738l0.001-0.004zm38.404 120.78c-1.5 2.46-4.72 3.24-7.18 1.73-19.662-12.01-44.414-14.73-73.564-8.07-2.809 0.64-5.609-1.12-6.249-3.93-0.643-2.81 1.11-5.61 3.926-6.25 31.9-7.291 59.263-4.15 81.337 9.34 2.46 1.51 3.24 4.72 1.73 7.18zm10.25-22.805c-1.89 3.075-5.91 4.045-8.98 2.155-22.51-13.839-56.823-17.846-83.448-9.764-3.453 1.043-7.1-0.903-8.148-4.35-1.04-3.453 0.907-7.093 4.354-8.143 30.413-9.228 68.222-4.758 94.072 11.127 3.07 1.89 4.04 5.91 2.15 8.976v-0.001zm0.88-23.744c-26.99-16.031-71.52-17.505-97.289-9.684-4.138 1.255-8.514-1.081-9.768-5.219-1.254-4.14 1.08-8.513 5.221-9.771 29.581-8.98 78.756-7.245 109.83 11.202 3.73 2.209 4.95 7.016 2.74 10.733-2.2 3.722-7.02 4.949-10.73 2.739z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+            <li class="mx-2">
+              <a href="https://open.spotify.com/show/0wARi39vAudMReD87AcWrq">
+                <svg
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="48"
+                  height="48"
+                  viewBox="0 0 1000 1000"
+                >
+                  <path
+                    id="path"
+                    style="opacity:1;vector-effect:none;fill:#3a2a27;fill-opacity:1;"
+                    d=" M 774 82C 771 83 769 84 766 86C 727 113 724 166 711 207C 703 252 664 303 613 282C 604 236 596 190 580 145C 564 92 522 37 462 37C 461 37 460 37 459 37C 386 39 307 72 268 137C 229 215 260 303 281 381C 272 415 203 416 172 437C 116 463 62 497 21 543C 14 551 8 560 5 569C 2 546 0 523 0 500C 0 367 53 240 146 146C 240 53 367 0 500 0C 597 0 693 29 774 82C 774 82 774 82 774 82M 466 94C 489 93 513 102 525 122C 546 157 567 202 551 243C 520 288 459 298 408 294C 358 291 343 233 348 192C 351 132 409 93 465 94C 466 94 466 94 466 94C 466 94 466 94 466 94M 492 124C 482 130 489 142 496 153C 501 159 517 152 513 144C 510 137 504 123 496 123C 495 123 493 123 492 124C 492 124 492 124 492 124M 1000 500C 1000 618 958 732 883 822C 867 777 837 739 823 693C 816 639 797 582 753 547C 731 518 663 499 692 453C 745 411 788 359 828 304C 851 261 866 210 862 161C 862 159 862 157 862 155C 950 248 1000 372 1000 500C 1000 500 1000 500 1000 500M 511 191C 510 198 516 204 516 212C 516 220 516 217 515 228C 514 239 533 240 536 231C 538 223 538 215 537 207C 537 199 536 189 529 185C 527 183 524 183 522 183C 517 183 513 186 511 191C 511 191 511 191 511 191M 403 684C 429 725 405 783 356 788C 317 789 265 786 243 827C 221 870 245 931 290 948C 349 976 414 952 471 931C 535 912 564 845 575 784C 593 746 547 658 615 677C 666 696 682 758 689 807C 687 853 702 922 762 913C 770 913 778 912 785 910C 702 968 602 1000 500 1000C 394 1000 290 966 205 903C 119 840 55 751 24 650C 30 657 38 664 47 668C 96 692 139 648 174 620C 214 578 270 563 320 538C 348 587 376 635 403 684C 403 684 403 684 403 684"
+                    transform=""
+                  >
+                  </path>
+                </svg>
+              </a>
+            </li>
+            <li class="mx-2">
+              <a href="https://www.youtube.com/@davidholmgren8156">
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="50 -50 600 600"
+                  width="48"
+                  height="48"
+                  style="enable-background:new 50 -50 600 600;"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .st0 {
+                      fill: #f9f1db;
+                    }
+                  </style>
+                  <circle cx="350" cy="250" r="297.5" style="fill: #3a2a27"
+                  ></circle>
+                  <path
+                    class="st0"
+                    d="M524.8,178.7c0,0-3.5-24.6-14.2-35.4c-13.5-14.2-28.7-14.3-35.7-15.1c-49.9-3.6-124.8-3.2-124.8-3.2
+    s-74.9-0.4-124.8,3.2c-7,0.8-22.1,0.9-35.7,15.1c-10.7,10.8-14.2,35.4-14.2,35.4s-3.6,28.8-4.2,57.7v27c0.7,28.8,4.2,57.7,4.2,57.7
+    s3.5,24.6,14.2,35.4c13.5,14.2,31.4,13.7,39.3,15.2c28,2.7,118,3.3,121.1,3.3c0,0,75,0.1,124.8-3.5c7-0.8,22.1-0.9,35.7-15.1
+    c10.7-10.8,14.2-35.4,14.2-35.4s3.6-28.8,3.8-57.7v-27C528.4,207.5,524.8,178.7,524.8,178.7z M313.8,299.9V199.4l95.8,50.2
+    L313.8,299.9z"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <Videos items={items as ItemsEntity[]} client:load />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
