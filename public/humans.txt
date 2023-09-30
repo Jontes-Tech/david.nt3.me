@@ -1,0 +1,7 @@
+/* WEBMASTER */
+Name: Jonatan Holmgren
+
+/* SITE */
+Last update: 2023-09-30
+Standards: Astro, TailwindCSS, Vercel, Cloudflare
+Software: VSCode
