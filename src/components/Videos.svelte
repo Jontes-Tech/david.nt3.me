@@ -11,7 +11,10 @@
 </script>
 
 <ul class="flex flex-col xl:flex-row my-4">
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
+  <a
+    href={"https://odysee.com/@davidsbok:d/" +
+      items[$indexes[0]].permanent_url.split("lbry://")[1]}
+  >
     <img
       class="mx-2"
       height="220"
@@ -24,7 +27,10 @@
       {items[$indexes[0]].value.title}
     </p>
   </a>
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
+  <a
+    href={"https://odysee.com/@davidsbok:d/" +
+      items[$indexes[1]].permanent_url.split("lbry://")[1]}
+  >
     <img
       class="mx-2"
       height="220"
@@ -37,7 +43,10 @@
       {items[$indexes[1]].value.title}
     </p>
   </a>
-  <a href={"https://odysee.com/@davidsbok:d/"+items[$indexes[2]].permanent_url.split("lbry://")[1]}>
+  <a
+    href={"https://odysee.com/@davidsbok:d/" +
+      items[$indexes[2]].permanent_url.split("lbry://")[1]}
+  >
     <img
       class="mx-2"
       height="220"
@@ -74,12 +83,10 @@
   >
     Se nästa
   </button>
-  <button
-    on:click={() => {
-      window.location.href = "https://odysee.com/@davidsbok:d";
-    }}
+  <a
+    href="https://odysee.com/@davidsbok:d"
     class="p-2 bg-secondary text-black hover:text-white hover:bg-accent"
   >
     Alla videos
-  </button>
+  </a>
 </div>

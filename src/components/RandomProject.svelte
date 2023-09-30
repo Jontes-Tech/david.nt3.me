@@ -22,12 +22,11 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
     <p class="text-xl mb-4 whitespace-pre-wrap">
       {projects[$project].description}
     </p>
-    <button
+    <a href={projects[$project].url}
       class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
-      on:click={() => {
-        window.location.href = projects[$project].url;
-      }}>Läs</button
     >
+    Läs
+    </a>
     <!-- <button
     class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
     on:click={() => {
