@@ -11,6 +11,12 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
 -Svenska Clarteförbundet på Facebook`,
       url: "https://clarte.se/bloggen/119425-den-lagloesa-graensen-homo-sacer-undantagstillstandet-och-kroppsvisitationer-i-sverige?highlight=WyJkYXZpZCIsImhvbG1ncmVuIiwiZGF2aWQgaG9sbWdyZW4iXQ==",
     },
+    {
+      name: "Progressiv beskattning, klassklyftor och högerns ekonomiska retorik ",
+      description:
+        "”I denna text för Clarté argumenterar jag för att specifika skattehöjningar faktiskt kan medföra såväl sociala som ekonomiska fördelar för samhället”",
+      url: "https://clarte.se/bloggen/119821-progressiv-beskattning-klassklyftor-och-hoegerns-ekonomiska-retorik",
+    },
   ];
   const project = writable(0);
 </script>
@@ -22,12 +28,13 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
     <p class="text-xl mb-4 whitespace-pre-wrap">
       {projects[$project].description}
     </p>
-    <a href={projects[$project].url}
+    <a
+      href={projects[$project].url}
       class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
     >
-    Läs
+      Läs
     </a>
-    <!-- <button
+    <button
     class="bg-primary hover:bg-accent text-white font-bold py-2 px-6"
     on:click={() => {
       if ($project === projects.length - 1) {
@@ -36,6 +43,6 @@ David Holmgren granskar förslaget från ett rättsfilosofiskt perspektiv. För 
         $project += 1;
       }
     }}>Visa en till text</button
-  > -->
+  >
   </div>
 </div>
